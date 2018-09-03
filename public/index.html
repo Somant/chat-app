@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset='utf-8'>
-        <title>Join | Chat App</title>
-        <meta name="viewport" content="width=device-width , initial-scale=1 , user-scalable= no">
-        <link rel="stylesheet" href="/css/styles.css">
-    </head>
-    <body class="centered-form">
-        <div class="centered-form__form">
-            <form action="/chat.html">
-                    <div class="form-field">
-                        <h3>Join A Chat</h3>
-                    </div>
-                    <div class="form-field">
-                        <label>Display Name</label>
-                        <input type="text" name="name" autofocus/>
-                    </div>
-                    <div class="form-field">
-                        <label>Room Name</label>
-                        <input type="text" name="room">
-                    </div>
-                    <div class="form-field">
-                        <button>Join</button>
-                    </div>
-            </form>
-           
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hangout | Join</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" type="image/png" href="favicon2.ico" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="90521245435-1mmpn03t3di8js3loc3ni24jvoe2dg78.apps.googleusercontent.com">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .centered-form__form{
+            display:none;
+        }
+        .data{
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="script.js"></script>
+</head>
+<body class="centered-form">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div class="centered-form__form">
+        <form action="/chat.html">
+            <div class="form-field">
+                <h3>Join A Chat</h3>
+            </div>
+            <div class="form-field">
+                <p>Display Name</p>
+                <input type="text" name="name" autofocus/>
+            </div>
+            <div class="form-field">
+                <p>Select a Room</p>
+                <select id="room-select" name="room_select">
+                    <option></option>
+                    <option value="free for all">FREE FOR ALL</option>
+                </select>
+            </div>
+            <div>
+                <h4>-- Or --</h4>
+            </div>
+            <div class="form-field">
+                <p>Create a Room</p>
+                <input type="text" name="room_input"/>
+            </div>
+            <div class="form-field">
+                <button style="font:size=12px">Join</button>
+            </div>
+        </form>
+    </div>
+    <div class="data">
+        <div align="right"><img id="pic" class="img-circle" width="75" height="75" /></div>
+        
+        <div>
+            <h1 style="color:azure">Hi, <span id="name" style="font-size:35px" ></span>!</h1>
+            <p style="font-size:20px;color:azure">Get Started by Joining a Chat Room</p>
+            
         </div>
-    </body>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/libs/jquery-3.3.1.min.js"></script>
+    <script src="/js/index.js"></script>
+</body>
 </html>
